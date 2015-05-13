@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Web.Mvc;
 
 namespace CSharpUtility
@@ -10,35 +11,38 @@ namespace CSharpUtility
             exceptionContext.ExceptionHandled = true;
 
             var ex = exceptionContext.Exception;
-            WriteLog(ex);
+            WriteErrorLog(ex);
 
             var context = exceptionContext.RequestContext.HttpContext;
             var isAjax = context.Request.Headers["X-Requested-With"] == "XMLHttpRequest";
-            var message = GetErrorMessage(ex, isAjax);
 
-            context.Response.Write(message);
-        }
-
-        private void WriteLog(Exception ex)
-        {
-            
-        }
-
-        private string GetErrorMessage(Exception ex, bool isAjax)
-        {
-            var message = ex.Message;
-
-            if (!isAjax)
+            if (isAjax)
             {
-                return message;
+                HandleAjaxRequest(context.Response, ex);
+                return;
             }
 
-            return string.Format(
+            HandleNormalRequest(context.Response, ex);
+        }
+
+        private void WriteErrorLog(Exception ex)
+        {
+
+        }
+
+        private void HandleAjaxRequest(HttpResponseBase response, Exception ex)
+        {
+            response.Write(string.Format(
                 @"<script>
-                    alert({0});
+                    $&&$.sendAjax&&$.sendAjax.handleError&&$.sendAjax.handleError({0});
                 </script>",
-                JsonOperation.Serialize(message)
-            );
+                JsonOperation.Serialize(ex.Message)
+            ));
+        }
+
+        private void HandleNormalRequest(HttpResponseBase response, Exception ex)
+        {
+            response.Write(ex.Message);
         }
     }
 }
