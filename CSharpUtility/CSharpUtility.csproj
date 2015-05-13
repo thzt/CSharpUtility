@@ -46,6 +46,9 @@
     <Compile Include="Condition\Condition.cs" />
     <Compile Include="DecisionMaker\DecisionMaker.cs" />
     <Compile Include="DownloadTool\DownloadTool.cs" />
+    <Compile Include="ExceptionFilter\ExceptionFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="HttpTool\HttpTool.cs" />
     <Compile Include="PairList\PairList.cs" />
     <Compile Include="JsonOperation\JsonOperation.cs" />
