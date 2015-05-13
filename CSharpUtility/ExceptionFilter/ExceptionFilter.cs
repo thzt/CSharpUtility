@@ -13,29 +13,32 @@ namespace CSharpUtility
             WriteLog(ex);
 
             var context = exceptionContext.RequestContext.HttpContext;
-            var request = context.Request;
-            var response = context.Response;
+            var isAjax = context.Request.Headers["X-Requested-With"] == "XMLHttpRequest";
+            var message = GetErrorMessage(ex, isAjax);
 
-            var headers = request.Headers;
-            var isAjax = headers["X-Requested-With"] == "XMLHttpRequest";
-            if (isAjax)
-            {
-                response.Write(string.Format(
-                    @"<script>
-                        alert({0});
-                    </script>",
-                    JsonOperation.Serialize(ex.Message)
-                ));
-
-                return;
-            }
-
-            context.Response.Write(ex.Message);
+            context.Response.Write(message);
         }
 
         private void WriteLog(Exception ex)
         {
+            
+        }
 
+        private string GetErrorMessage(Exception ex, bool isAjax)
+        {
+            var message = ex.Message;
+
+            if (!isAjax)
+            {
+                return message;
+            }
+
+            return string.Format(
+                @"<script>
+                    alert({0});
+                </script>",
+                JsonOperation.Serialize(message)
+            );
         }
     }
 }
