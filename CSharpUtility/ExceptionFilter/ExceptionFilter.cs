@@ -34,7 +34,7 @@ namespace CSharpUtility
         {
             response.Write(string.Format(
                 @"<script>
-                    $&&$.sendAjax&&$.sendAjax.handleError&&$.sendAjax.handleError({0});
+                    $&&$.sendAjax&&$.sendAjax.error&&$.sendAjax.error({0});
                 </script>",
                 JsonOperation.Serialize(ex.Message)
             ));
