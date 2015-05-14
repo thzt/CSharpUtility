@@ -54,6 +54,7 @@
     <Compile Include="JsonOperation\JsonOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegionChecker\RegionChecker.cs" />
+    <Compile Include="RequestCache\RequestCache.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DecisionMaker\Decision.xml" />
