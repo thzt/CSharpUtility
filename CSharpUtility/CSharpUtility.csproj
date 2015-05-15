@@ -43,18 +43,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssertTool\AssertTool.cs" />
     <Compile Include="Condition\Condition.cs" />
+    <Compile Include="Condition\TestCondition.cs" />
+    <Compile Include="DecisionMaker\TesetDecisionMaker.cs" />
     <Compile Include="DecisionMaker\DecisionMaker.cs" />
     <Compile Include="DownloadTool\DownloadTool.cs" />
     <Compile Include="ExceptionFilter\ExceptionFilter.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="HttpTool\TestHttpTool.cs" />
     <Compile Include="HttpTool\HttpTool.cs" />
+    <Compile Include="JsonOperation\TestJsonOperation.cs" />
+    <Compile Include="PairList\TestPairList.cs" />
     <Compile Include="PairList\PairList.cs" />
     <Compile Include="JsonOperation\JsonOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegionChecker\TestRegionChecker.cs" />
     <Compile Include="RegionChecker\RegionChecker.cs" />
+    <Compile Include="RequestCache\TestRequestCache.cs" />
     <Compile Include="RequestCache\RequestCache.cs" />
+    <Compile Include="StateMachine\TestStateMachine.cs" />
     <Compile Include="StateMachine\StateMachine.cs" />
   </ItemGroup>
   <ItemGroup>

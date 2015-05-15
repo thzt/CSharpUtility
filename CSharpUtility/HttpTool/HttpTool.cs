@@ -8,7 +8,7 @@ namespace CSharpUtility
     /// <summary>
     /// this class will send http request with parameters, and get http response.
     /// </summary>
-    public class HttpTool
+    public static class HttpTool
     {
         /// <summary>
         /// the only one public method we support.
