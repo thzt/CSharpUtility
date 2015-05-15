@@ -4,16 +4,16 @@ using System.Collections.Generic;
 
 namespace CSharpUtility
 {
-    public static class RequestCache
+    public class RequestCache
     {
-        private static readonly Hashtable hashtable = new Hashtable();
+        private readonly Hashtable hashtable = new Hashtable();
 
-        public static void SetDataList(object cacheKey, List<object> dataList)
+        public void SetDataList(object cacheKey, List<object> dataList)
         {
             hashtable.Add(cacheKey, dataList);
         }
 
-        public static List<object> GetDataList(object cacheKey, int count)
+        public List<object> GetDataList(object cacheKey, int count)
         {
             if (!hashtable.ContainsKey(cacheKey))
             {
