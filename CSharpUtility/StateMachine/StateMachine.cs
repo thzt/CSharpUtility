@@ -38,6 +38,19 @@ namespace CSharpUtility
 
             throw new Exception("Invalid receive value.");
         }
+
+        public List<string> GetAllReceivedFeedList()
+        {
+            List<ShiftAction> shiftActions = dict[State];
+
+            var allReceivedFeedList = new List<string>();
+            foreach (ShiftAction item in shiftActions)
+            {
+                allReceivedFeedList.Add(item.Receive);
+            }
+
+            return allReceivedFeedList;
+        }
     }
 
     internal sealed class ShiftAction

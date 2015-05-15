@@ -1,4 +1,6 @@
-﻿namespace CSharpUtility
+﻿using System.Collections.Generic;
+
+namespace CSharpUtility
 {
     public static class TestStateMachine
     {
@@ -21,6 +23,9 @@
             action = machine.Feed("2");
             AssertTool.Assert(action == "To End State");
             AssertTool.Assert(machine.State == "End");
+
+            machine.State = "Begin";
+            List<string> allReceivedFeedList = machine.GetAllReceivedFeedList();
         }
     }
 }
