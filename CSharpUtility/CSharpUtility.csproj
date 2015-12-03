@@ -46,7 +46,7 @@
     <Compile Include="AssertTool\AssertTool.cs" />
     <Compile Include="Condition\Condition.cs" />
     <Compile Include="Condition\TestCondition.cs" />
-    <Compile Include="DecisionMaker\TesetDecisionMaker.cs" />
+    <Compile Include="DecisionMaker\TestDecisionMaker.cs" />
     <Compile Include="DecisionMaker\DecisionMaker.cs" />
     <Compile Include="DownloadTool\DownloadTool.cs" />
     <Compile Include="ExceptionFilter\ExceptionFilter.cs">
